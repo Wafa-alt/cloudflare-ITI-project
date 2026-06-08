@@ -1,31 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Cloudflare Site</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Welcome to My Website 🚀</h1>
+<meta charset="UTF-8">
+<title>3D Cloudflare Site</title>
 
-  <input id="name" placeholder="Enter name">
-  <button onclick="sayHello()">Submit</button>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  font-family: Arial, sans-serif;
+}
 
-  <p id="output"></p>
-
-  <script src="script.js"></script>
-</body>
-</html
-  body {
-  font-family: Arial;
+/* 3D Card */
+.card {
+  width: 320px;
+  padding: 30px;
   text-align: center;
-  margin-top: 50px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+  transition: 0.4s ease;
+}
+
+.card:hover {
+  transform: perspective(1000px) rotateY(10deg) rotateX(10deg);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.7);
 }
 
 h1 {
-  color: blue;
+  color: #00e5ff;
+  text-shadow: 0 0 10px #00e5ff;
 }
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #00e5ff;
+  color: black;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00bcd4;
+  transform: scale(1.05);
+}
+
+#output {
+  margin-top: 20px;
+  color: white;
+  font-size: 18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Welcome 🚀</h1>
+
+  <input id="name" placeholder="Enter your name">
+
+  <button onclick="sayHello()">Submit</button>
+
+  <p id="output"></p>
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+
+// Function runs when button is clicked
 function sayHello() {
+
+  // Get input value
   let name = document.getElementById("name").value;
+
+  // Check if empty
+  if (name.trim() === "") {
+    document.getElementById("output").innerText =
+      "⚠️ Please enter your name first!";
+    return;
+  }
+
+  // Show greeting
   document.getElementById("output").innerText =
-    "Hello " + name + " 👋";
+    "👋 Hello " + name + "! Welcome to your 3D website!";
 }
+
+</script>
+
+</body>
+</html>
