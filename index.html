@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Cloudflare Site</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Welcome to My Website 🚀</h1>
+
+  <input id="name" placeholder="Enter name">
+  <button onclick="sayHello()">Submit</button>
+
+  <p id="output"></p>
+
+  <script src="script.js"></script>
+</body>
+</html
+  body {
+  font-family: Arial;
+  text-align: center;
+  margin-top: 50px;
+}
+
+h1 {
+  color: blue;
+}
+function sayHello() {
+  let name = document.getElementById("name").value;
+  document.getElementById("output").innerText =
+    "Hello " + name + " 👋";
+}
